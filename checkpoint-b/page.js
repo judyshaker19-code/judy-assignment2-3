@@ -1,4 +1,4 @@
- import { items } from "./items.js";
+import { items } from "./items.js";
 
 /**
  * Draws the items into the list, replacing whatever was there.
@@ -35,7 +35,6 @@ export function start() {
   });
 }
 
-// Automatically start the page in the browser, but not in the test's blank page.
-if (typeof window !== "undefined" && window.location.href !== "about:blank") {
+if (!import.meta.env?.VITEST && !import.meta.env?.MODE?.includes("test")) {
   start();
 }
